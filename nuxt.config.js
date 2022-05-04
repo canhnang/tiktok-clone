@@ -1,5 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  server: {
+    port: 4000
+  },
   head: {
     title: 'FrontEnd',
     htmlAttrs: {
@@ -36,6 +39,9 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
   ],
+  bootstrapVue: {
+    icons: true
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
