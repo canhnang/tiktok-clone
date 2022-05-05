@@ -1,0 +1,464 @@
+//
+body {
+    color: rgba(22, 24, 35, 0.75);
+}
+
+// topbar
+.topbar {
+    height: 60px;
+    width: 100%;
+    top: 0;
+    position: fixed;
+
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+/* seach */
+.search-form {
+    width: 360px;
+    height: 46px;
+    background-color: #f1f1f2;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    &:focus-within {
+        box-shadow: 0px 1px 0px 1px #ccc;
+        border: none;
+    }
+
+    .search-form__input {
+        width: 300px;
+        height: 40px;
+        margin: 3px 0;
+        background: transparent;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #666;
+        border: none;
+
+        &:focus {
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline-style: none;
+        }
+    }
+
+    &::after {
+        content: "";
+        top: 0;
+        right: 60px;
+        transform: translateY(calc((46px - 100%) / 2));
+        position: absolute;
+        width: 1px;
+        height: 28px;
+        background-color: #666;
+    }
+
+    .search-form-btn {
+        position: absolute;
+        height: 100%;
+        width: 60px;
+        top: 0;
+        color: #666;
+        right: 0;
+        transform: translateY(calc((46px - 100%) / 2));
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &:focus {
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline-style: none;
+        }
+
+        .search-form-icon {
+            position: absolute;
+            font-size: 18px;
+            top: 0;
+            color: #666;
+            right: calc((60px - 18px) / 2);
+            transform: translateY(calc((46px - 100%) / 2));
+        }
+    }
+}
+
+/* ------------- */
+.link-upload {
+    width: max-content;
+    font-size: 22px;
+    margin: auto 10px;
+}
+.btn-default {
+    width: 110px;
+    background-color: #fe2c55;
+    font-size: 16px;
+    font-weight: 500;
+}
+// topbar right
+.top-bar-right {
+    width: max-content;
+    display: flex;
+    justify-content: space-around;
+
+    .btn-icon {
+        background-color: transparent;
+        color: #111;
+        font-size: 22px;
+        border: none;
+        margin: 0 2px;
+
+        &:focus {
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline-style: none;
+        }
+
+        &.menu {
+            position: relative;
+
+            &:hover .menu-select-hover {
+                display: block;
+            }
+
+            .menu-select-hover {
+                position: absolute;
+                width: 230px;
+                top: calc(100% + 4px);
+                right: 0;
+
+                background-color: #fff;
+                border-radius: 4px;
+                box-shadow: 0px 3px 12px 5px rgb(0 0 0 / 15%);
+                list-style: none;
+                padding: 10px 0;
+
+                display: none;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: -20px;
+                    right: 5px;
+                    width: 50px;
+                    height: 30px;
+                }
+
+                li {
+                    padding: 8px 20px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    svg {
+                        font-size: 18px;
+                        margin-right: 10px;
+                    }
+
+                    a {
+                        color: #111;
+                        text-decoration: none;
+                    }
+
+                    &:hover {
+                        background-color: #f8f8f8;
+                    }
+                }
+            }
+        }
+    }
+
+    .profile {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        position: relative;
+
+        margin: auto 12px;
+        background: #ffffff url("https://photocross.net/wp-content/uploads/2020/03/anh-chan-dung.jpg") no-repeat center;
+        cursor: pointer;
+
+        &:hover .profile-info {
+            display: block;
+        }
+
+        .profile-info {
+            position: absolute;
+            width: 230px;
+            // height: 300px;
+            top: calc(100% + 10px);
+            right: -20px;
+
+            border-radius: 4px;
+            background-color: #fff;
+            box-shadow: 0px 2px 9px 0px #ccc;
+            display: none;
+            list-style-type: none;
+            padding: 0;
+
+            &::before {
+                position: absolute;
+                content: "";
+                top: -10px;
+                right: 0;
+
+                width: 60px;
+                height: 30px;
+            }
+            .profile-info_item {
+                padding: 4px 20px;
+                background-color: #ccc;
+
+                a {
+                    color: #111;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .search-wrap {
+        display: none;
+    }
+}
+
+// sidebar
+.sidebar {
+    margin-top: 60px;
+    height: 100vh;
+    position: fixed;
+    width: 360px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+    &:hover::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(22 24 35 / 6%);
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #ffffff;
+    }
+
+    .sidebar_top {
+        list-style: none;
+        padding: 20px 0;
+        border-bottom: 1px solid #f1f1f2;
+
+        li {
+            padding: 10px 20px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            a {
+                color: #111;
+                font-size: 18px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+
+                svg {
+                    width: 32px;
+                    font-size: 24px;
+                    margin-right: 20px;
+                }
+
+                &.nuxt-link-active {
+                    color: #fe2c55;
+                }
+            }
+        }
+    }
+
+    .sidebar_login {
+        padding: 20px;
+        font-size: 16px;
+        color: rgba(22, 24, 35, 0.5);
+        border-bottom: 1px solid #f1f1f2;
+        p {
+            margin-bottom: 30px;
+        }
+
+        button {
+            width: 320px;
+            height: 46px;
+
+            font-size: 18px;
+            font-weight: 600;
+
+            border-color: rgba(254, 44, 85, 1);
+            color: rgba(254, 44, 85, 1);
+
+            &:hover {
+                background-color: rgba(254, 44, 85, 0.09);
+                color: rgba(254, 44, 85, 1);
+            }
+        }
+    }
+
+    .recommended_acc {
+        margin-top: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f1f1f2;
+        height: 1000px;
+
+        h6 {
+            font-size: 14px;
+        }
+
+        .acc-info {
+            list-style: none;
+            padding: 0;
+
+            li {
+                padding: 4px 20px;
+                cursor: pointer;
+                position: relative;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                }
+
+                .acc-info__item {
+                    text-decoration: none;
+                    display: flex;
+                    .acc_img {
+                        display: flex;
+                        width: 40px;
+                        justify-content: start;
+                        align-items: center;
+                        img {
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    .desc {
+                        display: flex;
+                        flex-direction: column;
+
+                        .acc_link {
+                            font-size: 16px;
+                            color: rgb(22, 24, 35);
+                            font-weight: 600;
+                        }
+                        .acc_name {
+                            font-size: 12px;
+                            color: rgba(22, 24, 35, 0.75);
+                        }
+                    }
+                }
+
+                &:hover .acc-info__hover {
+                    display: block;
+                    z-index: 100;
+                }
+
+                .acc-info__hover {
+                    position: absolute;
+                    content: "";
+                    top: 100%;
+                    left: 10px;
+                    padding: 20px;
+
+                    width: 300px;
+                    border-radius: 6px;
+
+                    background-color: #fff;
+                    box-shadow: 0px 2px 8px 0px #ccc;
+                    display: none;
+                    a {
+                        color: rgb(22, 24, 35);
+                        text-decoration: none;
+
+                        .img-hover {
+                            img {
+                                width: 44px;
+                                height: 44px;
+                                border-radius: 50%;
+                            }
+                        }
+                        .info-hover {
+                            font-weight: 600;
+                            margin-top: 8px;
+                            .acc_link {
+                                font-size: 16px;
+                                margin: 0;
+                            }
+                            .acc_name {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    .btn-follow {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        button {
+                            width: 106px;
+                            height: 28px;
+                            background-color: rgb(254, 44, 85);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #fff;
+                            border: none;
+                            line-height: 28px;
+
+                            &:hover {
+                                opacity: 0.9;
+                            }
+                        }
+                    }
+
+                    .follow-info {
+                        display: flex;
+                        cursor: text;
+
+                        p {
+                            margin: 0 12px 0 0;
+                            font-size: 16px;
+
+                            .consume {
+                                margin-right: 4px;
+                                font-weight: 600;
+                                color: #111;
+                            }
+
+                            .desc {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
