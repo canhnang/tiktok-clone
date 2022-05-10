@@ -5,8 +5,8 @@
     </div>
     <b-container>
       <b-row>
-        <b-col md="4"><SideBar /></b-col>
-        <b-col md="8" class="nuxt"><nuxt /></b-col>
+        <b-col md="4" cols="3"><SideBar /></b-col>
+        <b-col md="8" cols="9" class="nuxt"><nuxt /></b-col>
       </b-row>
     </b-container>
   </div>
@@ -21,7 +21,7 @@ export default {
   components: { TopBar, SideBar },
 };
 </script>
-<style>
+<style lang="scss">
 .nuxt {
   margin-top: 60px;
 }
