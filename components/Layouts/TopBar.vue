@@ -2,7 +2,7 @@
   <div class="topbar">
     <b-container>
       <b-row>
-        <b-col lg="4" md="2" sm="6">
+        <b-col lg="4" md="2" sm="6" cols="2">
           <b-navbar-brand href="#">NavBar</b-navbar-brand>
         </b-col>
         <b-col lg="4" md="6" class="search-wrap">
@@ -16,7 +16,7 @@
             </b-button>
           </div>
         </b-col>
-        <b-col lg="4" md="4" sm="6">
+        <b-col lg="4" md="4" sm="6" cols="10">
           <div class="ml-auto top-bar-right">
             <!-- <b-button class="btn-icon" title="Tải video lên">
               <b-icon icon="cloud-arrow-up"></b-icon>
